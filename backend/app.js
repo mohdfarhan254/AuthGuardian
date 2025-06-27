@@ -6,10 +6,19 @@ const connectDB = require('./config/db');
 const app = express();
 
 // ✅ Enable CORS
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:5001'];
+
 app.use(cors({
-  origin: 'http://localhost:3000', // your React app URL
-  credentials: true               // if you use cookies
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
 }));
+
 
 // Connect to DB
 connectDB();
@@ -18,7 +27,7 @@ connectDB();
 app.use(express.json());
 
 // ✅ Unified auth route
-app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/auth', require('./controller/AuthController'));
 
 // Health check
 app.get('/', (req, res) => {
