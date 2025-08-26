@@ -3,7 +3,7 @@
 **Auth-Guard** is a full-stack authentication project focused on learning and implementing secure login, signup, and password reset flows using **email-based OTP verification**.
 
 Built using the **MERN stack (MongoDB, Express.js, React, Node.js)**, this app helps users securely register and log in using OTP-based verification to prevent unauthorized access.
-
+ 
 ---
 
 ## 🚀 Features
