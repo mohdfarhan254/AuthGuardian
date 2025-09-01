@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import api from '../services/api';
 import { useNavigate } from 'react-router-dom';
-
+ 
 const Register = () => {
   const [step, setStep] = useState('register'); // 'register' or 'verify'
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
